@@ -23,20 +23,7 @@ public class HelpModule : IModule
         var helpMessage = "这是一个HeliumBot，它只是Mirai .NET的模板Bot。\r\n";
         helpMessage += Program.Modules.Select(GetHelpText).JoinToString("\r\n");
 
-        if (@base is GroupMessageReceiver groupMessageReceiver)
-        {
-            await groupMessageReceiver.SendMessageAsync(helpMessage);
-        }
-
-        if (@base is FriendMessageReceiver friendMessageReceiver)
-        {
-            await friendMessageReceiver.SendMessageAsync(helpMessage);
-        }
-
-        if (@base is TempMessageReceiver tempMessageReceiver)
-        {
-            await tempMessageReceiver.SendMessageAsync(helpMessage);
-        }
+        await @base.SendMessageAsync(helpMessage);
     }
 
     private string GetHelpText(IModule module)
