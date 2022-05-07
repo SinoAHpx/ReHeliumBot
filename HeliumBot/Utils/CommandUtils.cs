@@ -30,15 +30,18 @@ public static class CommandUtils
         return !plainMessages.Any(s => s.Empty(match).Trim().IsNullOrEmpty());
     }
 
-    public static List<string>? GetArguments(this MessageChain chain, string command, string commandPrefix = "/")
+    public static List<string>? GetCommandArguments(this MessageChain chain, string command, string commandPrefix = "/")
     {
         if (!chain.HasCommandArguments(command, commandPrefix))
         {
             return null;
         }
         
-        
-        
-        return null;
+        var match = $"{commandPrefix}{command}";
+        var firstMatch = chain.GetSeparatedPlainMessage()
+            .Where(m => m.StartsWith(match))
+            .First(m => !m.Empty(match).Trim().IsNullOrEmpty());
+
+        return firstMatch?.Split(' ')[1..].ToList();
     }
 }

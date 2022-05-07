@@ -1,5 +1,6 @@
 ﻿using HeliumBot.Modules;
 using HeliumBot.Utils;
+using Manganese.Array;
 using Manganese.Text;
 using Mirai.Net.Data.Messages;
 using Mirai.Net.Data.Messages.Concretes;
@@ -18,10 +19,10 @@ namespace HeliumBot
         {
             MessageChain messageChain = new PlainMessage("Hello, I'm HeliumBot!")
                                         + new PlainMessage("\nI'm /help a bot that can help you with your Discord server.")
-                                        + new PlainMessage("/help");
+                                        + new PlainMessage("/help awd awd zawd ds zawd 212 awd- ajwkld 21");
             var cmd = "help";
 
-            Console.WriteLine(messageChain.HasCommandArguments(cmd));
+            messageChain.GetCommandArguments("help")?.Output();
             
             return;
             AnsiConsole.Write(new FigletText("HeliumBot").LeftAligned().Color(Color.DodgerBlue1));
