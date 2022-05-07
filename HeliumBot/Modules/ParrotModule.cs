@@ -8,7 +8,7 @@ using Mirai.Net.Utils.Scaffolds;
 
 namespace HeliumBot.Modules;
 
-[ModuleMetadata(Name = "复读模块", Description = "再说一遍你的话", HelpText = "/say <话>")]
+[ModuleMetadata(Name = "复读", Description = "再说一遍你的话", HelpText = "/say <话>")]
 public class ParrotModule : IModule
 {
     public async void Execute(MessageReceiverBase @base)
